@@ -1,0 +1,14 @@
+* {
+    font-family: "Iosevka";
+}
+
+body,
+html {}
+
+/* Style the navbar */
+.topnav {
+    position: fixed;
+    width: 100%;
+    margin-top: -20px;
+    overflow: hidden;
+}

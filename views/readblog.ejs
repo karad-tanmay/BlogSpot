@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpot</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="w-full min-h-screen bg-zinc-800 text-white p-0 m-0 tracking-tighter">
+        <div class="bg-zinc-900 p-3 topnav">
+            <a class="text-xl" href="/">BlogSpot</a>
+        </div>
+
+        <div class="w-full p-10 justify-items-center">
+            <form class=" w-full flex p-5 flex-col gap-3 border-1 rounded-lg justify-items-center" method="" action="">
+                <input placeholder="Blog Title" class="border-1 border-white outline-none px-2 py-1 rounded-md disabled" value="<%= blog.title %>" type="text" name="title" id="">
+                <textarea class="resize-none border-1 border-white outline-none rounded-lg p-2 h-100 disabled" name="content" placeholder="Type your blog here..." id=""><%= blog.content %></textarea>
+                <a href="/blog/like/<%= blog._id %>" class="border-1 border-white rounded-md px-2 py-1 bg-zinc-700 text-center"> Like (<%= blog.likes.length %>)</a>
+                <a href="/" class="border-1 border-white rounded-md px-2 py-1 bg-zinc-700 text-center">Close</a>
+            </form>
+        </div>
+
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>

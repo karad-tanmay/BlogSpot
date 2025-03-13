@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpot</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="w-full min-h-screen bg-zinc-800 text-white p-0 m-0 tracking-tighter">
+        <div class="bg-zinc-900 p-3 flex justify-between topnav">
+            <a class="text-xl" href="/">BlogSpot</a>
+            <!-- <h1 class="text-xl">BlogSpot</h1> -->
+            <% if(isUser) { %>
+            <div>
+                <a class="px-2 pt-1 pb-2 border-1 border-white bg-zinc-700 rounded-lg mr-2" href="/profile">Go to Profile</a>
+                <a class="px-2 pt-1 pb-2 border-1 border-white bg-zinc-700 rounded-lg" href="/logout">Logout</a>
+            </div>
+            <% } else { %>
+            <div>
+                <a class="px-2 pt-1 pb-2 border-1 border-white bg-zinc-700 rounded-lg mr-2" href="/register">Sign Up</a>
+                <a class="px-2 pt-1 pb-2 border-1 border-white bg-zinc-700 rounded-lg" href="/login">Login</a>
+            </div>
+            <% } %>
+        </div>
+        <div class="w-full justify-items-center p-7">
+            <h1 class="text-5xl mb-7">BlogSpot</h1>
+            <h3 class="text-2xl mb-1">"Where Ideas Take Flight and Stories Come Alive!"</h3>
+        </div>
+        <div class="p-5">
+            <h1 class="text-3xl mb-5">Blogs ></h1>
+            <div class="blog-cards flex gap-3 flex-wrap">
+                <% for(i = 0; i < blogs.length; i++){ %>
+                    <div class="flex flex-col justify-between h-72 w-64 rounded-lg px-3 py-2 pb-3 border-1">
+                        <div class="blog-card w-58 overflow-hidden">
+                            <div class="flex justify-between">
+                                <h3 class="text-xl"><%= blogs[i].title %></h3>
+                            </div>
+                            <div class="flex justify-between">
+                                <h5>~ <%= users[i].name %></h5>
+                                <h5 class=""><%= `${blogs[i].date.getDate()}/${blogs[i].date.getMonth()}/${blogs[i].date.getFullYear()}` %></h5>
+                            </div>
+                            <p><%= blogs[i].content %></p>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <h5>Likes: <%= blogs[i].likes.length %></h5>
+                            <a class="outline-none border-1 rounded-lg px-3 py-1 bg-zinc-700 mr-2" href="/blog/view/<%= blogs[i]._id %>">Read More</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>

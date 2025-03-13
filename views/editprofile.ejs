@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpot</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="w-full min-h-screen bg-zinc-800 text-white p-0 m-0 tracking-tighter">
+        <div class="bg-zinc-900 p-3 topnav">
+            <a class="text-xl" href="/">BlogSpot</a>
+        </div>
+
+        <div class="flex justify-center gap-10">
+            <div class="w-auto py-20 justify-items-center">
+                <form class="flex p-5 flex-col gap-3 border-1 rounded-lg justify-items-center" method="post" action="/profile/edit">
+                    <input placeholder="Name" class="border-1 border-white outline-none px-2 py-1 rounded-md" type="text" name="name" value="<%= user.name%>" id="">
+                    <input placeholder="Username" class="border-1 border-white outline-none px-2 py-1 rounded-md" type="text" name="username" value="<%= user.username%>" id="">
+                    <input class="border-1 border-white rounded-md px-2 py-1 bg-zinc-700" type="submit" value="Save Changes">
+                </form>
+            </div>
+
+            <div class="w-auto py-15 justify-items-center">
+                <form class="flex p-5 flex-col gap-3 border-1 rounded-lg justify-items-center" method="post" action="/profile/changepasswd">
+                    <input placeholder="Current Password" class="border-1 border-white outline-none px-2 py-1 rounded-md" type="password" name="oldpasswd" id="">
+                    <input placeholder="New Password" class="border-1 border-white outline-none px-2 py-1 rounded-md" type="password" name="newpasswd" id="">
+                    <input placeholder="Confirm Password" class="border-1 border-white outline-none px-2 py-1 rounded-md" type="password" name="confnewpasswd" id="">
+                    <input class="border-1 border-white rounded-md px-2 py-1 bg-zinc-700" type="submit" value="Update Password">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
